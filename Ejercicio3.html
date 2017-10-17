@@ -9,19 +9,64 @@
         {
             ventana = window.open("","",'width=200px,height=200px');
 
-            let bArriba = document.createElement("input");
-            bArriba.type="button";
-            bArriba.value="arriba";
-            bArriba.onclick = irArriba;
-            ventana.document.body.appendChild(bArriba);
-
+            crearBoton("arriba",irArriba);
+            crearBoton("izquierda",irIzq);
+            crearBoton("derecha",irDerecha);
+            crearBoton("abajo",irAbajo);
+            crearBoton("agrandar",agrandar);
+            crearBoton("reducir",reducir);
             centrar(ventana);
+
+        }
+
+        function crearBoton(valor,funcion)
+        {
+            let boton = document.createElement("input");
+            boton.type="button";
+            boton.value=valor;
+            boton.onclick = funcion;
+            ventana.document.body.appendChild(boton);
+        }
+
+        function agrandar()
+        {
+            if(ventana.outerHeight< screen.availHeight/2 && ventana.outerWidth < screen.availWidth/2)
+            {
+                ventana.resizeBy(ventana.outerHeight*2,ventana.outerWidth*2);
+            }
+
+
+        }
+
+        function reducir()
+        {
+            let alto= ventana.outerHeight;
+            let altoMitad= (alto/2)*-1;
+            let ancho = ventana.outerWidth;
+            let anchoMitad= (ancho/2)*-1;
+            if (alto >= 100 && ancho >= 100)
+            {
+                ventana.resizeBy(anchoMitad,altoMitad);
+            }
 
         }
 
         function irArriba()
         {
-            ventana.moveBy(0,-50)
+            ventana.moveBy(0,-10);
+        }
+
+        function irIzq()
+        {
+            ventana.moveBy(-10,0);
+        }
+        function irDerecha()
+        {
+            ventana.moveBy(10,0);
+        }
+        function irAbajo()
+        {
+            ventana.moveBy(0,10);
         }
 
         function centrar(ventana)
