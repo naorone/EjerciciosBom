@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+        function mostrarDatos()
+        {
+            mostrarUrl();
+            mostrarNavegador();
+            mostrarTitulo();
+            numFormularios()
+            tamVentana();
+            historial();
+        }
+
+        function mostrarUrl()
+        {
+            let url = document.URL;
+            let urlP = document.createElement("p");
+            let cont = document.createTextNode("URL: "+url);
+            urlP.appendChild(cont);
+            document.body.appendChild(urlP);
+        }
+
+        function mostrarNavegador()
+        {
+            let navegador = navigator.appCodeName;
+            let navegP = document.createElement("p");
+            let cont = document.createTextNode("NAVEGADOR: "+navegador);
+            navegP.appendChild(cont);
+            document.body.appendChild(navegP);
+        }
+
+        function mostrarTitulo()
+        {
+            let titulo = document.title;
+            let tituloP = document.createElement("p");
+            let cont = document.createTextNode("TITULO: "+titulo);
+            tituloP.appendChild(cont);
+            document.body.appendChild(tituloP);
+        }
+        
+        function numFormularios()
+        {
+            let forms = document.forms.length;
+            let formsP = document.createElement("p");
+            let cont = document.createTextNode("NUMERO DE FORMULARIOS: "+forms);
+            formsP.appendChild(cont);
+            document.body.appendChild(formsP);
+        }
+
+        function tamVentana()
+        {
+            let alto = screen.height;
+            let ancho = screen.width;
+            let tamP = document.createElement("p");
+            let cont = document.createTextNode("ALTO DE LA VENTANA: "+alto+" ANCHO DE LA VENTANA: "+ancho);
+            tamP.appendChild(cont);
+            document.body.appendChild(tamP);
+        }
+
+        function historial()
+        {
+            let tamHist = history.length;
+            if (tamHist > 3)
+            {
+                document.write("Deja de navegar");
+            }
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+    <button onclick="mostrarDatos()">Mostrar Datos</button>
+
+</body>
+</html>
+
+<!--
+
+ 2. Crear una página en la que solo aparezca un botón. Al pulsar este botón nos aparecerá cierta información:
+
+La URL de la página en la que estamos.
+El navegador que estamos utilizando.
+El titulo de la página.
+El numero de formularios que hay en la página (si es que hay alguno).
+Tamaño de la ventana actualmente.
+Un mensaje de que dejemos de navegar si comprueba que el historial de visitas es largo.
+ -->
