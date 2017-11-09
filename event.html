@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        window.onload = iniciar;
+        function iniciar()
+        {
+            let boton = document.getElementById("boton1");
+            boton.addEventListener("click",prueba);
+        }
+
+        function prueba(event, elemento)
+        {
+
+            console.log("event");
+            console.log(event);
+            console.log("this");
+            console.log(this);
+            console.log("elemento");
+            console.log(elemento);
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="button" onclick="prueba(event, this)" value="haz click">
+    <input id="boton1" type="button" value="haz click">
+</body>
+</html>
